@@ -5,6 +5,20 @@ from gilded_rose import Item, GildedRose
 
 
 class GildedRoseTest(unittest.TestCase):
+    def test_check_Item_isDegradable(self):
+        items = [Item(name="", sell_in=0, quality=0),
+                 Item(name=0, sell_in=0, quality=0),
+                 Item(name="Aged Brie", sell_in=0, quality=0),
+                 Item(name="Sulfuras, Hand of Ragnaros", sell_in=0,quality=0),
+                 Item(name="Backstage passes to a TAFKAL80ETC concert",sell_in=0,quality=0),
+                 Item(name="Elixir of the Mongoose", sell_in=5, quality=7)]
+        # items = [Item("foo", 0, 0)]
+        gilded_rose = GildedRose(items)
+        assertList = []
+        for item in items:
+            assertList.append(gilded_rose.check_Item_isDegradable(item))
+
+        self.assertEqual([True, True, False, False, False, True], assertList)
 
     # def test_foo(self):
     #     items = [Item("foo", 0, 0)]
@@ -52,6 +66,6 @@ class GildedRoseTest(unittest.TestCase):
     # def check_isConjured(self, item_obj):
     #     return "Conjured" in item_obj.name
 
-
+        
 if __name__ == '__main__':
     unittest.main()

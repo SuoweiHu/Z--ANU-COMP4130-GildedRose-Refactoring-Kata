@@ -14,7 +14,7 @@ class GildedRose(object):
         is_brie  = item_obj.name == "Aged Brie"
         is_hand  = item_obj.name == "Sulfuras, Hand of Ragnaros"
         is_pass  = item_obj.name == "Backstage passes to a TAFKAL80ETC concert"
-        return (not (is_brie and is_hand and is_pass))
+        return (not (is_brie or is_hand or is_pass))
 
     # Update quality based on the following rules
     # - Quality range will not surpass 50
